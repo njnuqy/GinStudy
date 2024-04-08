@@ -1,7 +1,7 @@
 package sign
 
 import (
-	"GinStudy/src/main/common"
+	"GinStudy/src/main/common/function"
 	"GinStudy/src/main/config"
 	"GinStudy/src/main/entity"
 	"errors"
@@ -62,7 +62,7 @@ func verifySign(c *gin.Context) (res map[string]string, err error) {
 		return nil, err
 	}
 	// 验证签名
-	if sn == "" || sn != common.CreateSign(req) {
+	if sn == "" || sn != function.CreateSign(req) {
 		err = errors.New("sn Error")
 		return nil, err
 	}

@@ -1,4 +1,4 @@
-package common
+package function
 
 import (
 	"GinStudy/src/main/config"
@@ -11,6 +11,10 @@ import (
 	"sort"
 	"time"
 )
+
+func GetTimeStr() string {
+	return time.Now().Format("2006-01-02 15:04:05")
+}
 
 // 打印
 func print(i interface{}) {

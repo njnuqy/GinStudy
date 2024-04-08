@@ -2,6 +2,7 @@ package router
 
 import (
 	"GinStudy/src/main/middleware/logger"
+	"GinStudy/src/main/middleware/recover"
 	"GinStudy/src/main/middleware/sign"
 	v1 "GinStudy/src/main/router/v1"
 	v2 "GinStudy/src/main/router/v2"
@@ -9,7 +10,7 @@ import (
 )
 
 func InitRouter(r *gin.Engine) {
-	r.Use(logger.LoggerToFile())
+	r.Use(logger.LoggerToFile(), recover.Recover())
 
 	//v1版本
 	GroupV1 := r.Group("/v1")
